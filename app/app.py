@@ -11,11 +11,12 @@ import ecs_logging
 import elasticapm
 import requests
 from config import config as CFG
-from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import ConnectionError, RequestError, TransportError
 from elasticsearch.helpers import streaming_bulk
 from google.protobuf.json_format import MessageToDict
 from google.transit import gtfs_realtime_pb2
+
+from elasticsearch import Elasticsearch
 
 
 def configure_logging():
@@ -238,22 +239,22 @@ def main():
 
     # Define required settings and secrets
     required_settings = [
-        "ES_URL",
-        "KB_URL",
         "INDEX_NAME",
         "APM_SERVICE_NAME",
         "APM_SERVICE_VERSION",
         "APM_ENVIRONMENT",
-        "APM_SERVER_URL",
         "WMATA_API_URL",
         "SLEEP_DURATION",
     ]
 
     required_secrets = [
-        "WMATA_API_KEY",
-        "APM_SECRET_TOKEN",
         "ES_USERNAME",
         "ES_PASSWORD",
+        "ES_USERNAME",
+        "ES_PASSWORD",
+        "APM_SECRET_TOKEN",
+        "APM_SERVER_URL",
+        "WMATA_API_KEY",
     ]
 
     # Validate configurations
@@ -262,7 +263,7 @@ def main():
 
     # Initialize Elasticsearch client
     es_client = Elasticsearch(
-        CFG["SETTINGS"]["ES_URL"],
+        CFG["SECRETS"]["ES_URL"],
         basic_auth=(CFG["SECRETS"]["ES_USERNAME"], CFG["SECRETS"]["ES_PASSWORD"]),
     )
 
@@ -282,7 +283,7 @@ def main():
     # Create Elastic APM client
     apm_client = elasticapm.Client(
         {
-            "SERVER_URL": CFG["SETTINGS"]["APM_SERVER_URL"],
+            "SERVER_URL": CFG["SECRETS"]["APM_SERVER_URL"],
             "SERVICE_NAME": CFG["SETTINGS"]["APM_SERVICE_NAME"],
             "SECRET_TOKEN": CFG["SECRETS"]["APM_SECRET_TOKEN"],
             "ENVIRONMENT": CFG["SETTINGS"]["APM_ENVIRONMENT"],
