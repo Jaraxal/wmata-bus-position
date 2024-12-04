@@ -249,8 +249,8 @@ def main():
     required_secrets = [
         "ES_USERNAME",
         "ES_PASSWORD",
-        "ES_USERNAME",
-        "ES_PASSWORD",
+        "ES_URL",
+        "KB_URL",
         "APM_SECRET_TOKEN",
         "APM_SERVER_URL",
         "WMATA_API_KEY",
