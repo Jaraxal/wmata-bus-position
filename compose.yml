@@ -1,0 +1,18 @@
+services:
+  wmata-bus-position:
+    container_name: wmata-bus-position-python
+    hostname: wmata-bus-position-python
+    tty: true
+    environment:
+       CONFIG_SECRETS_FILE: /run/secrets/config_secrets
+       PYTHONUNBUFFERED: 1
+    image: wmata-bus-position-python
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: on-failure:3
+    secrets:
+      - config_secrets
+secrets:
+  config_secrets:
+    file: ./app/config/secrets.toml
