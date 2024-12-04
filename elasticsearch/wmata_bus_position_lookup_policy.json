@@ -1,0 +1,31 @@
+{
+  "processors" : [
+    {
+      "enrich" : {
+        "description": "Add 'route' data based on 'route_id'",
+        "policy_name": "wmata-bus-routes-policy",
+        "field" : "vehicle.trip.routeId",
+        "target_field": "route",
+        "max_matches": "1"
+      }
+    },
+    {
+      "enrich" : {
+        "description": "Add 'stop' data based on 'stop_id'",
+        "policy_name": "wmata-bus-stops-policy",
+        "field" : "vehicle.stopId",
+        "target_field": "stop",
+        "max_matches": "1"
+      }
+    },
+    {
+      "enrich" : {
+        "description": "Add 'trip' data based on 'trip_id'",
+        "policy_name": "wmata-bus-trips-policy",
+        "field" : "vehicle.trip.tripId",
+        "target_field": "trip",
+        "max_matches": "1"
+      }
+    }
+  ]
+}

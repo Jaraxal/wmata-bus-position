@@ -1,0 +1,145 @@
+{
+    "template": {
+        "mappings": {
+            "properties": {
+                "id": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "event": {
+                    "properties": {
+                      "original": {
+                        "type": "text"
+                      }
+                    }
+                },
+                "location": {
+                    "type": "geo_point"
+                },
+                "timestamp": {
+                    "type": "date"
+                },
+                "vehicle": {
+                    "properties": {
+                        "currentStatus": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "currentStopSequence": {
+                            "type": "long"
+                        },
+                        "occupancyStatus": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "position": {
+                            "properties": {
+                                "bearing": {
+                                    "type": "float"
+                                },
+                                "latitude": {
+                                    "type": "float"
+                                },
+                                "longitude": {
+                                    "type": "float"
+                                },
+                                "speed": {
+                                    "type": "float"
+                                }
+                            }
+                        },
+                        "stopId": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "timestamp": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "trip": {
+                            "properties": {
+                                "routeId": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "scheduleRelationship": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "startDate": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "tripId": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "vehicle": {
+                            "properties": {
+                                "id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "_meta": {
+        "description": "Index mapping for WMATA GTFS RT bus position data."
+    }
+}

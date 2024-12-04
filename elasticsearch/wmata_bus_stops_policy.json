@@ -1,0 +1,7 @@
+{
+  "match": {
+    "indices": "wmata-bus-stops",
+    "match_field": "stop_id",
+    "enrich_fields": ["stop_code","stop_name","stop_desc","stop_lat","stop_lon","zone_id","stop_url"]
+  }
+}
