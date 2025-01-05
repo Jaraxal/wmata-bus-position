@@ -4,35 +4,33 @@ This project is an example python program that demonstrates how to query the WMA
 
 ## Configuration
 
-Before running the app you must update the `app/config/settings.toml` and `app/config/secrets.toml` configuration files.
+Before running the app you must update the `config/settings.toml` and `config/.secrets.toml` configuration files.
 
-### app/config/settings.toml
+### config/settings.toml
 
 The `settings.toml` configuration file should have the following configuration settings defined, as appropriate, for your
 environment.
 
 ```toml
-[SETTINGS]
 # Elastics configuration
-INDEX_NAME = "wmata-rail-position"
+INDEX_NAME = "wmata-bus-position"
 
 # APM configuration
 APM_SERVICE_VERSION = "2.0"
-APM_ENVIRONMENT = "Development"
-APM_SERVICE_NAME = "wmata-rail-position"
+APM_ENVIRONMENT = "Production"
+APM_SERVICE_NAME = "wmata-bus-position"
 
 # WMATA API configuration
-WMATA_API_URL = "https://api.wmata.com/gtfs/rail-gtfsrt-vehiclepositions.pb"
+WMATA_API_URL = "https://api.wmata.com/gtfs/bus-gtfsrt-vehiclepositions.pb"
 SLEEP_DURATION = "90"
 ```
 
-### app/config/secrets.toml
+### config/.secrets.toml
 
-The `secrets.toml` configuration file should have the following configuration settings defined, as appropriate, for your
+The `.secrets.toml` configuration file should have the following configuration settings defined, as appropriate, for your
 environment.
 
 ```toml
-[SECRETS]
 # Elastic Server Configuration
 ES_USERNAME = "YOUR ELASTICSEARCH USERNAME"
 ES_PASSWORD = "YOUR ELASTICSEARCH PASSWORD"

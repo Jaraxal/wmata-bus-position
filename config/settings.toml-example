@@ -1,4 +1,3 @@
-[SETTINGS]
 # Elasticsearch server configuration
 INDEX_NAME = "wmata-bus-position"
 

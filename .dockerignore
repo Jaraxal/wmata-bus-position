@@ -94,6 +94,7 @@ venv/
 
 # Secrets
 **/secrets.toml
+**/.secrets.toml
 
 **/.DS_Store
 
