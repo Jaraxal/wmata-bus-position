@@ -1,11 +1,19 @@
 #!/bin/sh
 
-# Load environment variables from file
-#export $(egrep -v '^#' ../app/.env | xargs)
 
-export ES_USERNAME="elastic"
-export ES_PASSWORD="eOHt7mLwh7CmCZM1B2HQs8Qp"
-export ES_URL="https://myoung-demo.es.us-east-1.aws.found.io:443"
+# Path to the environment file
+ENV_FILE="../config/.env"
+
+# Check if the file exists
+if [ ! -f "$ENV_FILE" ]; then
+    echo "Error: File '$ENV_FILE' does not exist."
+    exit 1
+fi
+
+# Load environment variables from the file
+export $(grep -v '^#' "$ENV_FILE" | xargs)
+
+echo "Environment variables loaded successfully."
 
 echo "Creating WMATA bus position Elasticseach setttings ..."
 
