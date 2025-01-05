@@ -9,7 +9,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    restart: on-failure:3
+    restart: unless-stopped
     secrets:
       - config_secrets
 secrets:
