@@ -1,11 +1,9 @@
 services:
   wmata-bus-positions:
-    container_name: wmata-bus-positions-python
+    image: wmata-bus-positions-python
     tty: true
     environment:
       CONFIG_SECRETS_FILE: /run/secrets/config_secrets
-      PYTHONUNBUFFERED: 1
-    image: wmata-bus-positions-python
     build:
       context: ./
       dockerfile: Dockerfile
